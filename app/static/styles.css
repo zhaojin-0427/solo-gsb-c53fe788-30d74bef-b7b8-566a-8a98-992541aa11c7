@@ -1,0 +1,135 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+  background: #f4f5f7;
+  color: #23272f;
+}
+header {
+  background: linear-gradient(120deg, #2b5876, #4e4376);
+  color: #fff;
+  padding: 18px 28px;
+}
+header h1 { margin: 0; font-size: 22px; }
+header .sub { opacity: .85; font-size: 13px; margin-top: 4px; }
+
+main {
+  max-width: 1280px;
+  margin: 20px auto;
+  padding: 0 16px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.panel {
+  background: #fff;
+  border-radius: 10px;
+  padding: 18px 22px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.08);
+}
+.panel h2 { margin: 0 0 14px; font-size: 18px; border-left: 4px solid #4e6076; padding-left: 10px; }
+.panel h3 { margin: 18px 0 10px; font-size: 15px; color: #3d4757; }
+
+label { font-size: 13px; color: #444; }
+input[type=number], input[type=text] {
+  width: 86px;
+  padding: 4px 6px;
+  border: 1px solid #c5cbd3;
+  border-radius: 5px;
+  font-size: 13px;
+}
+input[type=text].name-input { width: 130px; }
+input.wide { width: 100%; }
+
+.row { display: flex; gap: 24px; flex-wrap: wrap; align-items: center; }
+.kerf-row { margin-bottom: 8px; }
+.btn-row { margin-top: 12px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.main-actions { margin-top: 18px; }
+
+button {
+  padding: 7px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+button.primary { background: #2f6f9f; color: #fff; }
+button.primary:hover { background: #25587f; }
+button.secondary { background: #e9edf2; color: #33404f; }
+button.secondary:hover { background: #dbe1e9; }
+button.danger { background: #fdecec; color: #b44; }
+button.danger:hover { background: #f8dada; }
+button:disabled { opacity: .5; cursor: not-allowed; }
+
+.card {
+  border: 1px solid #dde2e8;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  background: #fbfcfd;
+}
+.card .card-head {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+}
+.card-title { font-weight: 600; font-size: 13px; min-width: 70px; }
+.defect-row {
+  display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
+  margin-top: 8px; padding: 6px 8px;
+  background: #f6f2ee; border-radius: 6px; font-size: 12px;
+}
+.defects-wrap { margin-top: 6px; }
+.checkbox-label { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; }
+
+.status-line { font-size: 13px; color: #5a6472; }
+.status-optimal { color: #1a7f4b; font-weight: 600; }
+.status-feasible { color: #b07d12; font-weight: 600; }
+.status-unknown { color: #b05312; font-weight: 600; }
+.status-infeasible { color: #b44; font-weight: 600; }
+
+.summary-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
+  gap: 10px; margin: 8px 0 6px;
+}
+.stat {
+  background: #f3f6f9; border-radius: 8px; padding: 10px 12px;
+}
+.stat .k { font-size: 12px; color: #6a7482; }
+.stat .v { font-size: 18px; font-weight: 700; margin-top: 2px; }
+
+.step-controls {
+  display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+  margin: 14px 0; padding: 10px;
+  background: #f7f9fb; border-radius: 8px;
+}
+#stepLabel { font-size: 13px; font-weight: 600; min-width: 200px; }
+.toggle-waste { margin-left: auto; font-size: 13px; }
+
+.board-figure { margin-bottom: 18px; }
+.board-figure h4 { margin: 0 0 6px; font-size: 14px; }
+.viz-wrap { overflow-x: auto; }
+.viz-svg { background: #fff; border: 1px solid #c9cfd7; border-radius: 4px; }
+
+table { border-collapse: collapse; width: 100%; font-size: 13px; }
+th, td { border: 1px solid #dde2e8; padding: 6px 9px; text-align: center; }
+th { background: #eef2f6; }
+tr.product-row td { background: #eef8f0; }
+
+.plan-item {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  padding: 9px 12px; border: 1px solid #e2e6eb; border-radius: 8px;
+  margin-bottom: 8px; font-size: 13px;
+}
+.plan-item .pname { font-weight: 600; min-width: 140px; }
+.plan-item button { padding: 4px 10px; }
+
+.toast {
+  position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%);
+  background: #333; color: #fff; padding: 10px 18px; border-radius: 8px;
+  font-size: 13px; z-index: 100; box-shadow: 0 4px 14px rgba(0,0,0,.25);
+}
+.toast.error { background: #a33; }
+.toast.ok { background: #2a7a4f; }
+
+.legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 12px; color: #555; margin: 6px 0; }
+.legend span { display: inline-flex; align-items: center; gap: 5px; }
+.legend i { width: 13px; height: 13px; border-radius: 3px; display: inline-block; }

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>板材顺序锯切规划台</title>
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<header>
+  <h1>🪚 板材顺序锯切规划台</h1>
+  <div class="sub">Guillotine 顺序锯切 · 最小用板面积 / 最少切割次数 · OR-Tools 求解</div>
+</header>
+
+<main>
+  <section class="panel" id="inputPanel">
+    <h2>① 录入数据</h2>
+
+    <div class="row kerf-row">
+      <label>锯缝宽度
+        <input type="number" id="kerf" min="0" step="1" value="3"> mm
+      </label>
+      <label>搜索时限
+        <input type="number" id="timeLimit" min="0.1" max="120" step="0.5" value="10"> 秒
+      </label>
+    </div>
+
+    <h3>板材（最多 3 张，宽/高为正整数毫米）</h3>
+    <div id="boardList"></div>
+    <div class="btn-row">
+      <button type="button" id="addBoard" class="secondary">＋ 添加板材</button>
+    </div>
+
+    <h3>零件（最多 8 件，宽/高为正整数毫米）</h3>
+    <div id="partList"></div>
+    <div class="btn-row">
+      <button type="button" id="addPart" class="secondary">＋ 添加零件</button>
+      <button type="button" id="sampleBtn" class="secondary">载入示例</button>
+    </div>
+
+    <div class="btn-row main-actions">
+      <button type="button" id="solveBtn" class="primary">开始规划求解</button>
+      <span id="solveStatus" class="status-line"></span>
+    </div>
+  </section>
+
+  <section class="panel" id="resultPanel" hidden>
+    <h2>② 规划结果</h2>
+    <div id="resultSummary"></div>
+
+    <div id="stepControls" class="step-controls" hidden>
+      <button type="button" id="stepPrev" class="secondary">◀ 上一刀</button>
+      <span id="stepLabel"></span>
+      <button type="button" id="stepNext" class="secondary">下一刀 ▶</button>
+      <button type="button" id="stepAll" class="secondary">显示全部</button>
+      <label class="toggle-waste">
+        <input type="checkbox" id="showWaste" checked> 显示废料叶区
+      </label>
+    </div>
+
+    <div id="boardsView"></div>
+
+    <h3>逐刀锯切顺序</h3>
+    <div id="cutTableWrap"></div>
+
+    <h3>成品清单</h3>
+    <div id="placementTableWrap"></div>
+
+    <div class="btn-row">
+      <button type="button" id="saveBtn" class="primary">💾 保存此方案</button>
+      <button type="button" id="downloadBtn" class="secondary">⬇ 下载锯切清单 (CSV)</button>
+    </div>
+  </section>
+
+  <section class="panel" id="plansPanel">
+    <h2>③ 已保存方案</h2>
+    <div id="plansList"></div>
+  </section>
+</main>
+
+<div id="toast" class="toast" hidden></div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

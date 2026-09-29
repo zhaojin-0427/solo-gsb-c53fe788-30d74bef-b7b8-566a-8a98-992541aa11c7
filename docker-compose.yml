@@ -1,0 +1,12 @@
+services:
+  saw-planner:
+    build: .
+    container_name: board-saw-planner
+    ports:
+      - "8000:8000"
+    volumes:
+      - saw-data:/srv/app/data
+    restart: unless-stopped
+
+volumes:
+  saw-data:
